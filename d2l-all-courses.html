@@ -146,6 +146,10 @@
 				cursor: pointer;
 				display: inherit;
 			}
+			.dropdown-content-tab-button:hover,
+			.dropdown-content-tab-button:focus {
+				text-decoration: underline;
+			}
 			.dropdown-content-tab-highlight {
 				background-color: var(--d2l-color-celestine);
 				border-bottom-left-radius: 4px;
@@ -153,11 +157,6 @@
 				height: 4px;
 				width: 80%;
 				margin: auto;
-			}
-			button:focus,
-			button:hover,
-			.highlight {
-				text-decoration: underline;
 			}
 			.selected {
 				color: var(--d2l-color-celestine);
@@ -658,7 +657,6 @@
 				this.$.sortDropdown.toggleOpen();
 			},
 			_updateFilter: function(e) {
-				console.log(e.detail);
 				var isSemester = this.$.semesterList.contains(e.target);
 
 				if (e.detail.selected) {
@@ -687,7 +685,6 @@
 					: this.localize('filtering.department');
 			},
 			_updateSortBy: function(e) {
-				console.log(e.detail);
 				this.set('_sortField', e.detail.value);
 
 				this.$.sortText.textContent = this.localize(this._sortTextOptions[this._sortField] || '');
