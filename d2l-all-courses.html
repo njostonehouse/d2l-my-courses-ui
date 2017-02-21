@@ -723,7 +723,7 @@
 			_updateEnrollmentAlerts: function(hasPinnedEnrollments, hasUnpinnedEnrollments) {
 				this._noPinnedCoursesInSearch = false;
 				this._noUnpinnedCoursesInSearch = false;
-				var isSearched = this.$['search-widget']._isSearched,
+				var isSearched = this.$['search-widget']._showClearIcon,
 					hasAlert = this._hasAlert('noPinnedCourses');
 				this._clearAlerts();
 				if (!hasPinnedEnrollments) {
