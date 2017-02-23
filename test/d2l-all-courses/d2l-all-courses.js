@@ -178,8 +178,8 @@ describe('d2l-all-courses', function() {
 		it('should update enrollment alerts when an enrollment is pinned', function() {
 			var sandbox = sinon.sandbox.create();
 
-			widget.filteredPinnedEnrollments = [];
-			widget.filteredUnpinnedEnrollments = [unpinnedEnrollmentEntity];
+			widget._filteredPinnedEnrollments = [];
+			widget._filteredUnpinnedEnrollments = [unpinnedEnrollmentEntity];
 			expect(widget._hasFilteredPinnedEnrollments).to.equal(false);
 			expect(widget._alerts).to.include({ alertName: 'noPinnedCourses', alertType: 'call-to-action', alertMessage: 'You don\'t have any pinned courses. Pin your favorite courses to make them easier to find.' });
 			var updateEnrollmentAlertsSpy = sandbox.spy(widget, '_updateEnrollmentAlerts');
