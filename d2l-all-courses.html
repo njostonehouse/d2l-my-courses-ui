@@ -199,10 +199,10 @@
 					type: Boolean,
 					value: true
 				},
-				// Standard Semester OU Type name to be displayed in the filter dropdown
-				filterStandardSemesterName: String,
 				// Standard Department OU Type name to be displayed in the filter dropdown
 				filterStandardDepartmentName: String,
+				// Standard Semester OU Type name to be displayed in the filter dropdown
+				filterStandardSemesterName: String,
 				// Object containing the last response from an enrollments search request
 				lastEnrollmentsSearchResponse: Object,
 				// Entity returned from my-enrollments Link from the enrollments root
@@ -238,14 +238,6 @@
 				_enrollmentsSearchAction: Object,
 				// URL constructed to fetch a user's enrollments with the enrollments search Action
 				_enrollmentsSearchUrl: String,
-				// True when there are filtered pinned enrollments (i.e. `_filteredPinnedEnrollments.length > 0`)
-				_hasFilteredPinnedEnrollments: Boolean,
-				// True when there are filtered unpinned enrollments (i.e. `_filteredUnpinnedEnrollments.length > 0`)
-				_hasFilteredUnpinnedEnrollments: Boolean,
-				// True when there are any filtered enrollments (pinned or unpinned)
-				_hasFilteredEnrollments: Boolean,
-				// Determines if the filter menu can be shown (The number of enrollments >= enrollments required)
-				_hasManyEnrollments: false,
 				// Filter dropdown opener text
 				_filterText: String,
 				// filtered pinned enrollment entities
@@ -257,8 +249,16 @@
 					type: Array,
 					value: function() { return []; }
 				},
-				_noPinnedCoursesInSearch: false,
-				_noUnpinnedCoursesInSearch: false,
+				// True when there are any filtered enrollments (pinned or unpinned)
+				_hasFilteredEnrollments: Boolean,
+				// True when there are filtered pinned enrollments (i.e. `_filteredPinnedEnrollments.length > 0`)
+				_hasFilteredPinnedEnrollments: Boolean,
+				// True when there are filtered unpinned enrollments (i.e. `_filteredUnpinnedEnrollments.length > 0`)
+				_hasFilteredUnpinnedEnrollments: Boolean,
+				// Determines if the filter menu can be shown (The number of enrollments >= enrollments required)
+				_hasManyEnrollments: Boolean,
+				_noPinnedCoursesInSearch: Boolean,
+				_noUnpinnedCoursesInSearch: Boolean,
 				// The number of Enrollments required to show the filter menu
 				_numEnrollmentsRequiredToShowFilters: {
 					type: Number,
