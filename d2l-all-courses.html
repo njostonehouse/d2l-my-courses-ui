@@ -117,7 +117,7 @@
 
 				<h2 class="d2l-heading-3">{{localize('pinnedCourses')}}</h2>
 
-				<span id="no-pinned-in-search" hidden$="[[!_noPinnedCoursesInSearch]]">
+				<span hidden$="[[!_noPinnedCoursesInSearch]]">
 					{{localize('noPinnedCoursesInSearch')}}
 				</span>
 
@@ -143,7 +143,7 @@
 
 				<h2 class="d2l-heading-3">{{localize('unpinnedCourses')}}</h2>
 
-				<span id="no-pinned-in-search" hidden$="[[!_noUnpinnedCoursesInSearch]]">
+				<span hidden$="[[!_noUnpinnedCoursesInSearch]]">
 					{{localize('noUnpinnedCoursesInSearch')}}
 				</span>
 
@@ -544,16 +544,17 @@
 				this._noPinnedCoursesInSearch = false;
 				this._noUnpinnedCoursesInSearch = false;
 				var isSearched = this.$['search-widget']._showClearIcon,
-					hasAlert = this._hasAlert('noPinnedCourses');
+					hasAlert = this._hasAlert('noPinnedCourses'),
+					isFiltered = this._parentOrganizations ? this._parentOrganizations.length > 0 : false;
 				this._clearAlerts();
 				if (!hasPinnedEnrollments) {
-					if (isSearched && !hasAlert) {
+					if (!hasAlert && (isSearched || isFiltered)) {
 						this._noPinnedCoursesInSearch = true;
 					} else {
 						this._addAlert('call-to-action', 'noPinnedCourses', this.localize('noPinnedCoursesMessage'));
 					}
 				}
-				if (!hasUnpinnedEnrollments && isSearched) {
+				if (!hasUnpinnedEnrollments && (isSearched || isFiltered)) {
 					this._noUnpinnedCoursesInSearch = true;
 				}
 			},

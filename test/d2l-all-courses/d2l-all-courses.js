@@ -235,9 +235,21 @@ describe('d2l-all-courses', function() {
 			widget._updateEnrollmentAlerts(false, true);
 			expect(widget._noPinnedCoursesInSearch).to.be.true;
 		});
-		it('should show no unpinned courses in search message when no pinned courses in search', function() {
+		it('should show no pinned courses in search message when no pinned courses in filter', function() {
+			widget._clearAlerts();
+			widget._parentOrganizations = ['boop'];
+			widget._updateEnrollmentAlerts(false, true);
+			expect(widget._noPinnedCoursesInSearch).to.be.true;
+		});
+		it('should show no unpinned courses in search message when no unpinned courses in search', function() {
 			widget._clearAlerts();
 			widget.$['search-widget']._showClearIcon = true;
+			widget._updateEnrollmentAlerts(true, false);
+			expect(widget._noUnpinnedCoursesInSearch).to.be.true;
+		});
+		it('should show no unpinned courses in search message when no unpinned courses in filter', function() {
+			widget._clearAlerts();
+			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(true, false);
 			expect(widget._noUnpinnedCoursesInSearch).to.be.true;
 		});
@@ -247,9 +259,21 @@ describe('d2l-all-courses', function() {
 			widget._updateEnrollmentAlerts(true, true);
 			expect(widget._noPinnedCoursesInSearch).to.be.false;
 		});
+		it('should not show message when there are pinned courses in filter', function() {
+			widget._clearAlerts();
+			widget._parentOrganizations = ['boop'];
+			widget._updateEnrollmentAlerts(true, true);
+			expect(widget._noPinnedCoursesInSearch).to.be.false;
+		});
 		it('should not show message when there are unpinned courses in search', function() {
 			widget._clearAlerts();
 			widget.$['search-widget']._showClearIcon = true;
+			widget._updateEnrollmentAlerts(true, true);
+			expect(widget._noUnpinnedCoursesInSearch).to.be.false;
+		});
+		it('should not show message when there are unpinned courses in filter', function() {
+			widget._clearAlerts();
+			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(true, true);
 			expect(widget._noUnpinnedCoursesInSearch).to.be.false;
 		});
