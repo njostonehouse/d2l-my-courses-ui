@@ -239,7 +239,7 @@ describe('d2l-all-courses', function() {
 			widget._clearAlerts();
 			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(false, true);
-			expect(widget._noPinnedCoursesInSearch).to.be.true;
+			expect(widget._noPinnedCoursesInSelection).to.be.true;
 		});
 		it('should show no unpinned courses in search message when no unpinned courses in search', function() {
 			widget._clearAlerts();
@@ -251,7 +251,7 @@ describe('d2l-all-courses', function() {
 			widget._clearAlerts();
 			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(true, false);
-			expect(widget._noUnpinnedCoursesInSearch).to.be.true;
+			expect(widget._noUnpinnedCoursesInSelection).to.be.true;
 		});
 		it('should not show message when there are pinned courses in search', function() {
 			widget._clearAlerts();
@@ -263,7 +263,7 @@ describe('d2l-all-courses', function() {
 			widget._clearAlerts();
 			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(true, true);
-			expect(widget._noPinnedCoursesInSearch).to.be.false;
+			expect(widget._noPinnedCoursesInSelection).to.be.false;
 		});
 		it('should not show message when there are unpinned courses in search', function() {
 			widget._clearAlerts();
@@ -275,7 +275,7 @@ describe('d2l-all-courses', function() {
 			widget._clearAlerts();
 			widget._parentOrganizations = ['boop'];
 			widget._updateEnrollmentAlerts(true, true);
-			expect(widget._noUnpinnedCoursesInSearch).to.be.false;
+			expect(widget._noUnpinnedCoursesInSelection).to.be.false;
 		});
 		it('should not show message if there is already an alert for no pinned courses', function() {
 			widget._clearAlerts();

@@ -120,6 +120,9 @@
 				<span hidden$="[[!_noPinnedCoursesInSearch]]">
 					{{localize('noPinnedCoursesInSearch')}}
 				</span>
+				<span hidden$="[[!_noPinnedCoursesInSelection]]">
+					{{localize('noPinnedCoursesInSelection')}}
+				</span>
 
 				<template is="dom-repeat" items="{{_alerts}}">
 					<d2l-alert type="[[item.alertType]]">
@@ -145,6 +148,9 @@
 
 				<span hidden$="[[!_noUnpinnedCoursesInSearch]]">
 					{{localize('noUnpinnedCoursesInSearch')}}
+				</span>
+				<span hidden$="[[!_noUnpinnedCoursesInSelection]]">
+					{{localize('noUnpinnedCoursesInSelection')}}
 				</span>
 
 				<d2l-course-tile-grid
@@ -258,7 +264,9 @@
 				// Determines if the filter menu can be shown (The number of enrollments >= enrollments required)
 				_hasManyEnrollments: Boolean,
 				_noPinnedCoursesInSearch: Boolean,
+				_noPinnedCoursesInSelection: Boolean,
 				_noUnpinnedCoursesInSearch: Boolean,
+				_noUnpinnedCoursesInSelection: Boolean,
 				// The number of Enrollments required to show the filter menu
 				_numEnrollmentsRequiredToShowFilters: {
 					type: Number,
@@ -542,20 +550,26 @@
 			},
 			_updateEnrollmentAlerts: function(hasPinnedEnrollments, hasUnpinnedEnrollments) {
 				this._noPinnedCoursesInSearch = false;
+				this._noPinnedCoursesInSelection = false;
 				this._noUnpinnedCoursesInSearch = false;
+				this._noUnpinnedCoursesInSelection = false;
 				var isSearched = this.$['search-widget']._showClearIcon,
 					hasAlert = this._hasAlert('noPinnedCourses'),
 					isFiltered = this._parentOrganizations ? this._parentOrganizations.length > 0 : false;
 				this._clearAlerts();
 				if (!hasPinnedEnrollments) {
-					if (!hasAlert && (isSearched || isFiltered)) {
+					if (!hasAlert && isSearched) {
 						this._noPinnedCoursesInSearch = true;
+					} else if (!hasAlert && isFiltered) {
+						this._noPinnedCoursesInSelection = true;
 					} else {
 						this._addAlert('call-to-action', 'noPinnedCourses', this.localize('noPinnedCoursesMessage'));
 					}
 				}
-				if (!hasUnpinnedEnrollments && (isSearched || isFiltered)) {
+				if (!hasUnpinnedEnrollments && isSearched) {
 					this._noUnpinnedCoursesInSearch = true;
+				} else if (!hasUnpinnedEnrollments && isFiltered) {
+					this._noUnpinnedCoursesInSelection = true;
 				}
 			},
 
