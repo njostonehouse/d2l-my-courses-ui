@@ -26,7 +26,7 @@ the user has in that organization - student, teacher, TA, etc.
 	<template>
 		<style include="d2l-course-tile-styles"></style>
 
-		<div class="d2l-typography tile-container"
+		<div class="tile-container"
 			on-mouseover="_hoverCourseTile"
 			on-mouseout="_onTileMouseOut">
 			<div class="alert-color-circle"></div>
@@ -57,7 +57,7 @@ the user has in that organization - student, teacher, TA, etc.
 					<div class="course-text">
 						{{_organization.properties.name}}
 						<template id="courseCodeTemplate" is="dom-if" if="[[showCourseCode]]">
-							<span class="d2l-body-small course-code-text">{{_organization.properties.code}}</span>
+							<span class="course-code-text">{{_organization.properties.code}}</span>
 						</template>
 						<d2l-offscreen>[[_courseNotificationLabel]]</d2l-offscreen>
 					</div>

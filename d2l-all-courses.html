@@ -23,7 +23,6 @@
 
 <dom-module id="d2l-all-courses">
 	<template>
-		<style include="d2l-typography"></style>
 		<style include="d2l-all-courses-styles"></style>
 
 		<d2l-ajax
@@ -39,12 +38,11 @@
 			title-name="{{localize('allCourses')}}"
 			locale="[[locale]]"
 			close-simple-overlay-alt-text="{{localize('closeSimpleOverlayAltText')}}"
-			class="d2l-typography"
 			with-backdrop>
 
 			<div
 				id="overlayContent"
-				class="d2l-typography d2l-all-courses-hidden">
+				class="d2l-all-courses-hidden">
 
 				<iron-scroll-threshold
 					id="all-courses-scroll-threshold"
@@ -114,7 +112,7 @@
 					</div>
 				</div>
 
-				<h2 class="d2l-heading-3">{{localize('pinnedCourses')}}</h2>
+				<h2>{{localize('pinnedCourses')}}</h2>
 
 				<span hidden$="[[!_noPinnedCoursesInSearch]]">
 					{{localize('noPinnedCoursesInSearch')}}
@@ -143,7 +141,7 @@
 					tenant-id="[[tenantId]]">
 				</d2l-course-tile-grid>
 
-				<h2 class="d2l-heading-3">{{localize('unpinnedCourses')}}</h2>
+				<h2>{{localize('unpinnedCourses')}}</h2>
 
 				<span hidden$="[[!_noUnpinnedCoursesInSearch]]">
 					{{localize('noUnpinnedCoursesInSearch')}}

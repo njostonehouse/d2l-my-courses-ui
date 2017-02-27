@@ -3,18 +3,18 @@
 <link rel="import" href="../../d2l-icons/d2l-icons.html">
 <link rel="import" href="../../d2l-menu/d2l-menu-item-selectable-behavior.html">
 <link rel="import" href="../../d2l-menu/d2l-menu-item-selectable-styles.html">
+<link rel="import" href="../../d2l-typography/d2l-typography-shared-styles.html">
 <link rel="import" href="../../d2l-siren-parser/d2l-siren-parser.html">
 
 <dom-module id="d2l-list-item-filter">
 	<template>
-		<style include="d2l-typography"></style>
 		<style include="d2l-menu-item-selectable-styles">
 			:host {
 				padding: 0.5rem 1rem;
 			}
 
 			:host > span {
-				font-size: 0.8rem;
+				@apply --d2l-body-compact-text;
 			}
 
 			:host d2l-icon {
@@ -31,11 +31,7 @@
 			on-iron-ajax-response="_onOrganizationResponse">
 		</d2l-ajax>
 		<d2l-icon icon="d2l-tier2:check-box-unchecked" aria-hidden="true"></d2l-icon>
-		<span class="d2l-typography">
-			<span class="d2l-body-small">
-				[[text]]
-			</span>
-		</span>
+		<span>[[text]]</span>
 	</template>
 	<script>
 		'use strict';
