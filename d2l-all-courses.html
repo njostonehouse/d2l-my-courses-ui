@@ -11,7 +11,6 @@
 <link rel="import" href="../d2l-organization-hm-behavior/d2l-organization-hm-behavior.html">
 <link rel="import" href="../d2l-simple-overlay/d2l-simple-overlay.html">
 <link rel="import" href="../d2l-siren-parser/d2l-siren-parser.html">
-<link rel="import" href="../d2l-typography/d2l-typography.html">
 <link rel="import" href="d2l-alert-behavior.html">
 <link rel="import" href="d2l-all-courses-styles.html">
 <link rel="import" href="d2l-course-tile-grid.html">
@@ -24,7 +23,6 @@
 
 <dom-module id="d2l-all-courses">
 	<template>
-		<style include="d2l-typography"></style>
 		<style include="d2l-all-courses-styles"></style>
 
 		<d2l-ajax
@@ -40,12 +38,11 @@
 			title-name="{{localize('allCourses')}}"
 			locale="[[locale]]"
 			close-simple-overlay-alt-text="{{localize('closeSimpleOverlayAltText')}}"
-			class="d2l-typography"
 			with-backdrop>
 
 			<div
 				id="overlayContent"
-				class="d2l-typography d2l-all-courses-hidden">
+				class="d2l-all-courses-hidden">
 
 				<iron-scroll-threshold
 					id="all-courses-scroll-threshold"
@@ -99,10 +96,10 @@
 										<div class="dropdown-content-header">
 											<span>{{localize('sorting.sortBy')}}</span>
 										</div>
-										<d2l-menu-item-radio class="d2l-body-small dropdown-content-gradient" value="OrgUnitName" text="{{localize('sorting.sortCourseName')}}"></d2l-menu-item-radio>
-										<d2l-menu-item-radio class="d2l-body-small" value="OrgUnitCode" text="{{localize('sorting.sortCourseCode')}}"></d2l-menu-item-radio>
-										<d2l-menu-item-radio class="d2l-body-small" value="PinDate" text="{{localize('sorting.sortDatePinned')}}"></d2l-menu-item-radio>
-										<d2l-menu-item-radio class="d2l-body-small" value="LastAccessed" text="{{localize('sorting.sortLastAccessed')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio class="dropdown-content-gradient" value="OrgUnitName" text="{{localize('sorting.sortCourseName')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio value="OrgUnitCode" text="{{localize('sorting.sortCourseCode')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio value="PinDate" text="{{localize('sorting.sortDatePinned')}}"></d2l-menu-item-radio>
+										<d2l-menu-item-radio value="LastAccessed" text="{{localize('sorting.sortLastAccessed')}}"></d2l-menu-item-radio>
 									</d2l-menu>
 								</d2l-dropdown-menu>
 							</d2l-dropdown>
@@ -115,7 +112,7 @@
 					</div>
 				</div>
 
-				<h2 class="d2l-heading-3">{{localize('pinnedCourses')}}</h2>
+				<h2>{{localize('pinnedCourses')}}</h2>
 
 				<span hidden$="[[!_noPinnedCoursesInSearch]]">
 					{{localize('noPinnedCoursesInSearch')}}
@@ -144,7 +141,7 @@
 					tenant-id="[[tenantId]]">
 				</d2l-course-tile-grid>
 
-				<h2 class="d2l-heading-3">{{localize('unpinnedCourses')}}</h2>
+				<h2>{{localize('unpinnedCourses')}}</h2>
 
 				<span hidden$="[[!_noUnpinnedCoursesInSearch]]">
 					{{localize('noUnpinnedCoursesInSearch')}}
