@@ -15,7 +15,6 @@
 
 <dom-module id="d2l-search-widget-custom">
 	<template>
-		<style include="d2l-typography"></style>
 		<style include="d2l-search-widget-styles">
 			:host {
 				--d2l-search-widget-height: 60px;
@@ -54,7 +53,6 @@
 		<d2l-dropdown no-auto-open>
 			<div class="search-bar d2l-dropdown-opener" id="opener">
 				<input
-					class="d2l-typography"
 					is="iron-input"
 					bind-value="{{_searchInput}}"
 					role="combobox"
@@ -83,7 +81,7 @@
 				<div class="dropdown-content">
 					<iron-pages selectable=".search-results-listbox-page" attr-for-selected="data-page-name" selected="recent-searches-page">
 						<div class="search-results-listbox-page" data-page-name="recent-searches-page">
-							<d2l-search-listbox class="d2l-typography">
+							<d2l-search-listbox>
 								<div data-list-title disabled>{{localize('recentSearches')}}</div>
 								<template is="dom-repeat" items="[[_previousSearches]]">
 									<div class="d2l-search-widget-custom-item" selectable data-text$="[[item]]" role="option">
@@ -94,7 +92,7 @@
 						</div>
 
 						<div class="search-results-listbox-page" data-page-name="search-results-page">
-							<d2l-search-listbox class="d2l-typography">
+							<d2l-search-listbox>
 								<template id="courseSearchResultsTemplate" is="dom-repeat" items="[[_liveSearchResults]]">
 									<div class="d2l-search-widget-custom-item" selectable data-text$="[[item.name]]" data-href$="[[item.href]]" role="option">
 										[[item.name]]
@@ -104,7 +102,7 @@
 						</div>
 
 						<div class="search-results-listbox-page" data-page-name="no-results-page">
-							<d2l-search-listbox class="d2l-typography">
+							<d2l-search-listbox>
 								<div disabled>{{localize('noSearchResults')}}</div>
 							</d2l-search-listbox>
 						</div>
