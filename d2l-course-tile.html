@@ -205,9 +205,6 @@ the user has in that organization - student, teacher, TA, etc.
 			observers: [
 				'_onUpdatesChange(updateCountMap.*)'
 			],
-			created: function() {
-				this.setAttribute('role', 'link');
-			},
 			attached: function() {
 				Polymer.RenderStatus.afterNextRender(this, function() {
 					var tileContainerEl = this.$$('.tile-container');
